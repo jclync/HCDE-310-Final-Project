@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boba Drink Generator Form</title>
+    <h1>Boba Drink Generator Form</h1>
+    <em>Can't decide on what drink to order? Fill out this form to get a drink suggestion!</em><br /><br /><br />
+    <style>
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1em;
+            line-height: 1.2;
+            float: left;
+            text-align: left;
+            padding: 15px;
+        }
+        .formtitle{
+            float:left;
+            text-align:left;
+            color: rgb(252, 13, 84);
+        }
+        .image-container {
+			max-width: 45vw;
+			max-height: 75vh;
+			position: absolute;
+            right:200px;
+            bottom:200px;
+            
+		}
+		.image-container img {
+			display: flex;
+			align-items: flex-start;
+			max-height: 75vh;
+			max-width:40vw;
+			margin: auto auto;
+		}
+    </style>
+</head>
+<body>
+    <div class="column right">
+        <div class="divblock"></div>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename=gif_url) }}" alt="bobabee">
+            </div>
+        </div>
+    </div>
+<form action="/" method="post">
+    <label for="emotion1">Please enter 3-4 full sentences about how you were feeling <strong>YESTERDAY</strong>:</label>
+    <input type="text" id="emotion1" name="{input_1}" /><br />
+    <label for="emotion2">Please enter 3-4 full sentences about how you are feeling <strong>TODAY</strong>:</label>
+    <input type="text" id="emotion2" name="{input_2}" /><br /><br />
+    Please select only <strong>ONE</strong> boba shop out of the following <em>(select only ONE)</em>:<br />
+    <input type="checkbox" name="restaurant_type" value="Sharetea" id="Sharetea"/>
+    <label for="Sharetea">Sharetea</label><br />
+    <input type="checkbox" name="restaurant_type" value="CoCo" id="CoCo">
+    <label for="CoCo">CoCo Fresh Tea & Juice</label><br />
+    <input type="checkbox" name="restaurant_type" value="Yifang" id="Yifang">
+    <label for="Yifang">Yifang Taiwan Fruit Tea</label><br /><br />
+    <input type="submit" value="Submit" name="gobtn"/>
+</form><br /><br />
+{% if prompt %}
+<div class= 'formtitle'>{{prompt}}</div>
+{% endif %}
+</body>
+</html>
